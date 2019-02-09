@@ -4,6 +4,7 @@ from starlette.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn, aiohttp, asyncio
 from io import BytesIO
+import pandas as pd
 
 from fastai import *
 from fastai.vision import *
@@ -11,7 +12,7 @@ from fastai.vision import *
 export_file_url = 'https://www.dropbox.com/s/fzt6dvtm5m9ppnp/flowers.pkl?dl=1'
 export_file_name = 'flowers.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = pd.read_csv('classes.txt', names=['flowers']).flowers.to_list()
 path = Path(__file__).parent
 
 app = Starlette()
