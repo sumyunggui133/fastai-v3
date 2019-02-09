@@ -11,8 +11,8 @@ from fastai.vision import *
 export_file_url = 'https://www.dropbox.com/s/fzt6dvtm5m9ppnp/flowers.pkl?dl=1'
 export_file_name = 'flowers.pkl'
 
-__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file)))
-class_path = os.path.join(__location, 'classes.txt')
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+class_path = os.path.join(__location__, 'classes.txt')
 
 classes = pd.read_csv(class_path, names=['flowers']).flowers.to_list()
 path = Path(__file__).parent
